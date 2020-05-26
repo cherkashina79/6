@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+ <input type=button value="Открыть форму" id="but" onclick = "openform()">
+ <form onsubmit="sendform()" id="form"></form>
+<script>
+ function openform() {
+   but.onclick = null;
+   form.innerHTML += "<br />" + "Введите ваше имя:" + "&nbsp;";
+   document.createElement("input").type = "text";
+   form.append(document.createElement("input"));
+
+   let formdate = document.createElement("input");
+   let formfile = document.createElement("input");
+   let butsub = document.createElement("input");
+   formdate.type = "date";
+   formfile.type = "file";
+   butsub.type = "submit";
+   form.innerHTML += "<br /><br />" + "Введите вашу дату рождения:" + "&nbsp;";
+   form.append(formdate);
+   form.innerHTML += "<br /><br />" + "Прикрепите свое фото:" + "&nbsp;";
+   form.append(formfile);
+   form.innerHTML += "<br /><br />";
+   form.append(butsub);
+                    };
+ function sendform() {
+    if (document.forms[0].elements[0].value) {alert("Вас зовут: " + document.forms[0].elements[0].value)};
+    if (document.forms[0].elements[1].value) {alert("Вы родились: " + document.forms[0].elements[1].value)};
+    if (document.forms[0].elements[2].value) {alert("Имя файла с вашим фото: " + document.forms[0].elements[2].value)};
+		      };
+</script>
+</body>
+</html>
